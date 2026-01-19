@@ -1,7 +1,7 @@
 "use client";
 
 import type { ProjectSummary } from "@/types/project";
-import { ProjectCardPremium } from "./project-card-premium";
+import { ProjectCard } from "./project-card";
 import { motion } from "framer-motion";
 import { Frown } from "lucide-react";
 
@@ -32,8 +32,8 @@ export function ProjectListPremium({ projects }: ProjectListPremiumProps) {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {projects.map((project, index) => (
-        <ProjectCardPremium key={project.id} project={project} index={index} />
+      {projects.map((project) => (
+        <ProjectCard key={project.id} project={project} />
       ))}
     </div>
   );
