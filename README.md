@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IA Showcase - Wivoo
 
-## Getting Started
+Showcase propre et élégant des projets IA utilisant **shadcn/ui**.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 (App Router)
+- TypeScript
+- Tailwind CSS v4
+- shadcn/ui
+
+## Installation
+
+```bash
+npm install
+```
+
+## Développement
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrir [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+/app
+  /page.tsx              # Page d'accueil avec liste des projets
+  /project/[id]/page.tsx # Page de détail d'un projet
+  /layout.tsx            # Layout principal
+  /globals.css           # Styles globaux
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+/components
+  /project-card.tsx      # Card de projet (shadcn)
+  /project-list.tsx      # Liste des projets
+  /ui/                   # Composants shadcn/ui
+    /card.tsx
+    /badge.tsx
+    /button.tsx
+    /separator.tsx
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+/lib
+  /data-source.ts        # Source de données (CSV)
+  /utils.ts              # Utilitaires
 
-## Deploy on Vercel
+/types
+  /project.ts            # Types TypeScript
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Design
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Design minimaliste et élégant basé sur shadcn/ui avec:
+
+- Cards propres et lisibles
+- Badges pour les statuts
+- Layout responsive
+- Typographie claire
+- Espacement cohérent
+
+## Composants shadcn/ui
+
+Les composants suivants sont installés:
+
+- Card
+- Badge
+- Button
+- Separator
+
+Pour ajouter d'autres composants:
+
+```bash
+npx shadcn@latest add [component-name]
+```
+
+## Data
+
+### Sources de données
+
+Le projet supporte deux sources de données :
+
+1. **CSV** (par défaut) : fichier local `🧠 IA Showcase – Réalisations IA 2ed331cabede80878a93dc2b059d6a01.csv`
+2. **Notion API** : récupération dynamique depuis une database Notion
+
+### Configuration Notion
+
+Pour utiliser Notion comme source de données :
+
+1. Créer un fichier `.env.local` :
+
+```env
+USE_NOTION=true
+NOTION_TOKEN=secret_xxxxxxxxxxxxxxxxxxxxx
+NOTION_DATABASE_ID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+2. Redémarrer le serveur
+
+Voir [ENV_SETUP.md](./ENV_SETUP.md) pour le guide complet de configuration Notion.
