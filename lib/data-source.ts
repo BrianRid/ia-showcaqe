@@ -291,7 +291,7 @@ function createDataSource(): DataSource {
   // Par défaut, utiliser le CSV
   const csvPath = path.join(
     process.cwd(),
-    "🧠 IA Showcase – Réalisations IA 2ed331cabede80878a93dc2b059d6a01.csv"
+    "database.csv"
   );
   return new CSVDataSource(csvPath);
 }
