@@ -9,16 +9,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { MAX_USAGE_PREVIEW_LENGTH } from "@/lib/constants";
 
 interface ProjectCardProps {
   project: ProjectSummary;
-}
-
-function getStatusVariant(statut: string) {
-  const statusLower = statut.toLowerCase();
-  if (statusLower.includes("production")) return "default";
-  if (statusLower.includes("cours")) return "secondary";
-  return "outline";
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
@@ -26,7 +20,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     <Link href={`/project/${project.id}`} className="block h-full group perspective-1000">
       <Card className="h-full transition-all duration-500 shadow-wivoo-lg hover:shadow-wivoo-glow-lg border-2 border-wivoo-primary/50 bg-white hover:bg-white hover:border-wivoo-primary overflow-hidden relative preserve-3d group-hover:-translate-y-4 group-hover:scale-[1.02]">
         {/* Animated gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-wivoo-primary/10 via-wivoo-light/20 to-transparent opacity-50 group-hover:opacity-100 transition-all duration-500" />
+        <div className="absolute inset-0 bg-linear-to-br from-wivoo-primary/10 via-wivoo-light/20 to-transparent opacity-50 group-hover:opacity-100 transition-all duration-500" />
 
         {/* Shimmer effect on hover */}
         <div className="absolute inset-0 bg-shimmer-gradient opacity-0 group-hover:opacity-100 group-hover:animate-shimmer" />
@@ -39,17 +33,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-wivoo opacity-30 rounded-bl-full transform translate-x-12 -translate-y-12 group-hover:translate-x-6 group-hover:-translate-y-6 transition-transform duration-500" />
 
         <CardHeader className="relative z-10">
-          <div className="flex items-start justify-between gap-2 mb-3">
-            <CardTitle className="text-xl font-bold line-clamp-2 text-wivoo-dark group-hover:text-wivoo-primary transition-all duration-300 group-hover:translate-x-1 flex-1">
-              {project.titre}
-            </CardTitle>
-            <Badge
-              variant={getStatusVariant(project.statut)}
-              className="shrink-0 bg-wivoo-light text-wivoo-dark border-2 border-wivoo-primary/60 group-hover:shadow-wivoo-glow group-hover:scale-110 transition-all duration-300 font-bold"
-            >
-              {project.statut}
-            </Badge>
-          </div>
+          <CardTitle className="text-xl font-bold line-clamp-2 text-wivoo-dark group-hover:text-wivoo-primary transition-all duration-300 group-hover:translate-x-1 mb-3">
+            {project.titre}
+          </CardTitle>
           <CardDescription className="space-y-2">
             {project.client && (
               <div className="text-sm flex items-start gap-2 group-hover:translate-x-1 transition-transform duration-300">
@@ -68,10 +54,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         {project.casUsage && (
           <CardContent className="relative z-10">
-            <div className="relative p-4 rounded-lg bg-gradient-to-br from-wivoo-light/40 to-wivoo-primary/10 border-2 border-wivoo-primary/40 group-hover:border-wivoo-primary group-hover:shadow-wivoo-md transition-all duration-300 group-hover:from-wivoo-light/60 group-hover:to-wivoo-primary/20">
+            <div className="relative p-4 rounded-lg bg-linear-to-br from-wivoo-light/40 to-wivoo-primary/10 border-2 border-wivoo-primary/40 group-hover:border-wivoo-primary group-hover:shadow-wivoo-md transition-all duration-300 group-hover:from-wivoo-light/60 group-hover:to-wivoo-primary/20">
               <div className="absolute inset-0 bg-gradient-wivoo opacity-5 group-hover:opacity-10 rounded-lg transition-opacity duration-300" />
               <p className="text-sm text-foreground/90 line-clamp-3 leading-relaxed relative font-medium">
-                {project.casUsage.length > 150 ? project.casUsage.substring(0, 150) + '...' : project.casUsage}
+                {project.casUsage.length > MAX_USAGE_PREVIEW_LENGTH 
+                  ? project.casUsage.substring(0, MAX_USAGE_PREVIEW_LENGTH) + '...' 
+                  : project.casUsage}
               </p>
             </div>
           </CardContent>

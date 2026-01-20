@@ -1,11 +1,10 @@
 export interface Project {
   id: string;
   titre: string;
-  statut: string;
   cadreProjet: string;
   client: string;
   secteurActivite: string;
-  metiersConernes: string;
+  metiersConcernes: string;
   roleWiver: string;
   problemePrincipal: string;
   limiteSolutionActuelle: string;
@@ -28,7 +27,6 @@ export interface Project {
 export interface ProjectSummary {
   id: string;
   titre: string;
-  statut: string;
   client: string;
   secteurActivite: string;
   typeSolution: string;

@@ -1,14 +1,15 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export function CursorGlow() {
+  const glowRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      const glow = document.getElementById("cursor-glow");
-      if (glow) {
-        glow.style.left = `${e.clientX}px`;
-        glow.style.top = `${e.clientY}px`;
+      if (glowRef.current) {
+        glowRef.current.style.left = `${e.clientX}px`;
+        glowRef.current.style.top = `${e.clientY}px`;
       }
     };
 
@@ -18,7 +19,8 @@ export function CursorGlow() {
 
   return (
     <div
-      id="cursor-glow"
+      ref={glowRef}
+      aria-hidden="true"
       className="fixed w-96 h-96 pointer-events-none z-50 transition-opacity duration-300"
       style={{
         background:
