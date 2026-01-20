@@ -9,22 +9,22 @@ interface ProjectSidebarProps {
 
 export function ProjectSidebar({ project }: ProjectSidebarProps) {
   return (
-    <div className="sticky top-6 space-y-8">
+    <div className="sticky top-6 space-y-6">
       {/* Valeur */}
-      <Card className="group border-2 border-wivoo-primary/60 bg-white hover:bg-white shadow-wivoo-glow hover:shadow-wivoo-glow-lg transition-all duration-500 animate-scale-in overflow-hidden relative" style={{ animationDelay: '0.4s' }}>
-        <div className="absolute inset-0 bg-linear-to-br from-wivoo-primary/15 via-wivoo-light/25 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-        <div className="absolute -inset-1 bg-gradient-wivoo opacity-30 blur-2xl -z-10 group-hover:opacity-50 transition-opacity duration-500" />
+      <Card className="border border-wivoo-primary/30 bg-white hover:border-wivoo-primary/40 hover:shadow-wivoo-md hover:-translate-y-1 transition-all duration-300 group animate-scale-in overflow-hidden relative" style={{ animationDelay: '0.4s' }}>
+        <div className="absolute inset-0 bg-linear-to-br from-wivoo-primary/8 via-wivoo-light/15 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-wivoo opacity-10 rounded-full blur-3xl transform translate-x-20 -translate-y-20 group-hover:translate-x-16 group-hover:-translate-y-16 transition-transform duration-700" />
 
         <CardHeader className="relative">
-          <CardTitle className="text-2xl font-black flex items-center gap-3 text-wivoo-primary">
-            <div className="w-2 h-7 bg-gradient-wivoo-animated gradient-animated rounded-full shadow-wivoo-glow" />
+          <CardTitle className="text-xl font-semibold flex items-center gap-2.5 text-wivoo-primary group-hover:translate-x-1 transition-transform duration-200">
+            <div className="w-1.5 h-5 bg-gradient-wivoo-animated gradient-animated rounded-full shadow-wivoo-sm" />
             Valeur & Impact
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4 relative">
           {project.valeurApportee && (
             <div>
-              <h4 className="text-sm font-bold text-wivoo-primary/90 mb-2">
+              <h4 className="text-sm font-medium text-wivoo-primary/70 mb-1">
                 Valeur apportée
               </h4>
               <p className="text-sm text-foreground/80">
@@ -36,7 +36,7 @@ export function ProjectSidebar({ project }: ProjectSidebarProps) {
             <>
               <Separator />
               <div>
-                <h4 className="text-sm font-bold text-wivoo-primary/90 mb-2">
+                <h4 className="text-sm font-medium text-wivoo-primary/70 mb-1">
                   KPIs de succès
                 </h4>
                 <p className="text-sm text-foreground/80">
@@ -49,7 +49,7 @@ export function ProjectSidebar({ project }: ProjectSidebarProps) {
             <>
               <Separator />
               <div>
-                <h4 className="text-sm font-bold text-wivoo-primary/90 mb-2">
+                <h4 className="text-sm font-medium text-wivoo-primary/70 mb-1">
                   North Star
                 </h4>
                 <p className="text-sm text-foreground/80">
@@ -62,7 +62,7 @@ export function ProjectSidebar({ project }: ProjectSidebarProps) {
             <>
               <Separator />
               <div>
-                <h4 className="text-sm font-bold text-wivoo-primary/90 mb-2">
+                <h4 className="text-sm font-medium text-wivoo-primary/70 mb-1">
                   Hypothèse validée
                 </h4>
                 <p className="text-sm text-foreground/80">
@@ -72,30 +72,37 @@ export function ProjectSidebar({ project }: ProjectSidebarProps) {
             </>
           )}
         </CardContent>
+        
+        {/* Bottom accent animation */}
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 overflow-hidden">
+          <div className="h-full bg-gradient-wivoo -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" />
+        </div>
       </Card>
 
       {/* Maturité */}
       {project.niveauMaturite && (
-        <Card className="group border-2 border-wivoo-primary/60 bg-white hover:bg-white shadow-wivoo-glow hover:shadow-wivoo-glow-lg transition-all duration-500 animate-scale-in overflow-hidden relative" style={{ animationDelay: '0.5s' }}>
-          <div className="absolute inset-0 bg-linear-to-br from-wivoo-primary/15 via-wivoo-light/25 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-          <div className="absolute -inset-1 bg-gradient-wivoo opacity-30 blur-2xl -z-10 group-hover:opacity-50 transition-opacity duration-500" />
+        <Card className="border border-wivoo-primary/30 bg-white hover:border-wivoo-primary/40 hover:shadow-wivoo-md hover:-translate-y-1 transition-all duration-300 group animate-scale-in overflow-hidden relative" style={{ animationDelay: '0.5s' }}>
+          <div className="absolute inset-0 bg-linear-to-br from-wivoo-primary/8 via-wivoo-light/15 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-wivoo opacity-10 rounded-full blur-3xl transform translate-x-20 -translate-y-20 group-hover:translate-x-16 group-hover:-translate-y-16 transition-transform duration-700" />
 
           <CardHeader className="relative">
-            <CardTitle className="text-2xl font-black flex items-center gap-3 text-wivoo-primary">
-              <div className="w-2 h-7 bg-gradient-wivoo-animated gradient-animated rounded-full shadow-wivoo-glow" />
+            <CardTitle className="text-xl font-semibold flex items-center gap-2.5 text-wivoo-primary group-hover:translate-x-1 transition-transform duration-200">
+              <div className="w-1.5 h-5 bg-gradient-wivoo-animated gradient-animated rounded-full shadow-wivoo-sm" />
               Maturité
             </CardTitle>
           </CardHeader>
           <CardContent className="relative">
-            <div className="text-center py-6">
-              <div className="relative inline-block group">
-                <Badge variant="outline" className="text-lg px-8 py-3 border-2 border-wivoo-primary text-wivoo-dark bg-wivoo-light shadow-wivoo-md group-hover:shadow-wivoo-glow group-hover:scale-110 transition-all duration-300 font-black">
-                  {project.niveauMaturite}
-                </Badge>
-                <div className="absolute -inset-2 bg-wivoo-primary/40 blur-xl opacity-50 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
-              </div>
+            <div className="text-center py-4">
+              <Badge variant="outline" className="text-sm px-6 py-2 border-wivoo-primary/30 text-wivoo-primary bg-wivoo-light/30 font-medium group-hover:scale-105 group-hover:border-wivoo-primary/40 transition-all duration-200">
+                {project.niveauMaturite}
+              </Badge>
             </div>
           </CardContent>
+          
+          {/* Bottom accent animation */}
+          <div className="absolute bottom-0 left-0 right-0 h-0.5 overflow-hidden">
+            <div className="h-full bg-gradient-wivoo -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" />
+          </div>
         </Card>
       )}
     </div>

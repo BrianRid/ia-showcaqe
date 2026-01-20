@@ -11,59 +11,54 @@ interface ProjectHeaderProps {
 
 export function ProjectHeader({ project }: ProjectHeaderProps) {
   return (
-    <header className="relative backdrop-blur-2xl bg-white/95 border-b-2 border-wivoo-primary/20 animate-slide-up shadow-wivoo-md">
-      <div className="absolute inset-0 bg-linear-to-r from-wivoo-primary/3 via-transparent to-wivoo-light/5" />
+    <header className="relative bg-white border-b border-wivoo-primary/20">
+      <div className="absolute inset-0 bg-linear-to-r from-wivoo-primary/5 to-transparent" />
       <div className="container mx-auto px-4 py-8 relative">
         <Button
           variant="ghost"
           asChild
-          className="mb-8 group hover:bg-wivoo-light/30 hover:text-wivoo-primary transition-all duration-300 hover:translate-x-1 hover:shadow-wivoo-sm"
+          className="mb-6 hover:bg-wivoo-light/20 hover:text-wivoo-primary transition-colors"
         >
           <Link href="/">
-            <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform duration-300" />
+            <ArrowLeft className="mr-2 h-4 w-4" />
             Retour aux missions
           </Link>
         </Button>
 
-        <div className="space-y-8">
+        <div className="space-y-6">
           <div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-4 text-wivoo-primary drop-shadow-lg">
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-3 text-wivoo-primary">
               {project.titre}
             </h1>
-            {/* Animated accent line */}
-            <div className="flex gap-2">
-              <div className="h-2.5 w-24 bg-gradient-wivoo rounded-full animate-bounce-subtle shadow-wivoo-glow" />
-              <div className="h-2.5 w-16 bg-gradient-wivoo rounded-full animate-bounce-subtle shadow-wivoo-glow" style={{ animationDelay: '0.2s' }} />
-              <div className="h-2.5 w-12 bg-gradient-wivoo rounded-full animate-bounce-subtle shadow-wivoo-glow" style={{ animationDelay: '0.4s' }} />
-            </div>
+            <div className="h-1 w-20 bg-gradient-wivoo rounded-full" />
           </div>
 
-          <div className="flex flex-wrap gap-3 animate-slide-up-delayed">
+          <div className="flex flex-wrap gap-2">
             {project.client && (
               <Badge 
                 variant="outline" 
-                className="border-2 transition-all duration-300 hover:shadow-wivoo-md hover:scale-105 text-sm px-4 py-2 font-bold"
-                style={{ borderColor: '#451ec7', color: '#451ec7', backgroundColor: '#451ec71a' }}
+                className="text-xs px-3 py-1 font-medium"
+                style={{ borderColor: '#451ec7', color: '#451ec7', backgroundColor: '#451ec708' }}
               >
-                <span className="font-black">Client:</span> {project.client}
+                Client: {project.client}
               </Badge>
             )}
             {project.secteurActivite && (
               <Badge 
                 variant="outline" 
-                className="border-2 transition-all duration-300 hover:shadow-wivoo-md hover:scale-105 text-sm px-4 py-2 font-bold"
-                style={{ borderColor: '#4682b4', color: '#4682b4', backgroundColor: '#4682b41a' }}
+                className="text-xs px-3 py-1 font-medium"
+                style={{ borderColor: '#4682b4', color: '#4682b4', backgroundColor: '#4682b408' }}
               >
-                <span className="font-black">Secteur:</span> {project.secteurActivite}
+                Secteur: {project.secteurActivite}
               </Badge>
             )}
             {project.typeSolution && (
               <Badge 
                 variant="outline" 
-                className="border-2 transition-all duration-300 hover:shadow-wivoo-md hover:scale-105 text-sm px-4 py-2 font-bold"
+                className="text-xs px-3 py-1 font-medium"
                 style={getBadgeStyle(project.typeSolution)}
               >
-                <span className="font-black">Type:</span> {project.typeSolution}
+                Type: {project.typeSolution}
               </Badge>
             )}
           </div>

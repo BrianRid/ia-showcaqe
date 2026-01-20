@@ -7,30 +7,30 @@ interface ProjectSolutionProps {
 
 export function ProjectSolution({ project }: ProjectSolutionProps) {
   return (
-    <Card className="group border-2 border-wivoo-primary/50 bg-white hover:bg-white shadow-wivoo-lg hover:shadow-wivoo-glow-lg transition-all duration-500 hover:-translate-y-1 animate-scale-in overflow-hidden relative" style={{ animationDelay: '0.2s' }}>
-      <div className="absolute inset-0 bg-linear-to-br from-wivoo-primary/15 via-wivoo-light/25 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+    <Card className="border border-wivoo-primary/40 bg-white hover:border-wivoo-primary/50 hover:shadow-wivoo-lg hover:-translate-y-1 transition-all duration-300 group animate-scale-in overflow-hidden relative" style={{ animationDelay: '0.2s' }}>
+      <div className="absolute inset-0 bg-linear-to-br from-wivoo-primary/10 via-wivoo-light/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
       <div className="absolute inset-0 bg-shimmer-gradient opacity-0 group-hover:opacity-100 group-hover:animate-shimmer" />
-      <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-wivoo opacity-20 rounded-full blur-3xl transform translate-x-32 -translate-y-32 group-hover:translate-x-24 group-hover:-translate-y-24 transition-transform duration-700" />
+      <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-wivoo opacity-15 rounded-full blur-3xl transform translate-x-24 -translate-y-24 group-hover:translate-x-20 group-hover:-translate-y-20 transition-transform duration-700" />
 
       <CardHeader className="relative">
-        <CardTitle className="text-3xl font-black flex items-center gap-3 text-wivoo-primary">
-          <div className="w-2 h-8 bg-gradient-wivoo-animated gradient-animated rounded-full shadow-wivoo-glow" />
+        <CardTitle className="text-2xl font-semibold flex items-center gap-2.5 text-wivoo-primary group-hover:translate-x-1 transition-transform duration-200">
+          <div className="w-1.5 h-6 bg-gradient-wivoo-animated gradient-animated rounded-full shadow-wivoo-md" />
           Solution IA
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4 relative">
         {project.solutionIA && (
-          <div className="relative p-8 bg-linear-to-br from-wivoo-light/50 via-wivoo-primary/15 to-wivoo-light/30 border-2 border-wivoo-primary rounded-2xl shadow-wivoo-lg group-hover:shadow-wivoo-glow transition-all duration-500 overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-wivoo-animated gradient-animated shadow-wivoo-glow" />
-            <div className="absolute bottom-0 right-0 w-32 h-32 bg-wivoo-primary/20 rounded-full blur-2xl" />
-            <p className="text-base text-foreground whitespace-pre-wrap leading-relaxed relative z-10 font-semibold">
+          <div className="relative p-5 bg-wivoo-light/20 border border-wivoo-primary/40 rounded-xl group-hover:bg-wivoo-light/30 group-hover:border-wivoo-primary/50 group-hover:shadow-wivoo-sm transition-all duration-200 overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-wivoo-animated gradient-animated shadow-wivoo-sm" />
+            <div className="absolute bottom-0 right-0 w-24 h-24 bg-wivoo-primary/10 rounded-full blur-2xl" />
+            <p className="text-sm text-foreground whitespace-pre-wrap leading-relaxed relative z-10">
               {project.solutionIA}
             </p>
           </div>
         )}
         {project.casUsage && (
           <div>
-            <h4 className="text-sm font-bold text-wivoo-primary/90 mb-1">Cas d'usage</h4>
+            <h4 className="text-sm font-medium text-wivoo-primary/70 mb-1">Cas d&apos;usage</h4>
             <p className="text-sm text-foreground/80">
               {project.casUsage}
             </p>
@@ -38,7 +38,7 @@ export function ProjectSolution({ project }: ProjectSolutionProps) {
         )}
         {project.llmsUtilises && (
           <div>
-            <h4 className="text-sm font-bold text-wivoo-primary/90 mb-1">
+            <h4 className="text-sm font-medium text-wivoo-primary/70 mb-1">
               LLM(s) utilisé(s)
             </h4>
             <p className="text-sm text-foreground/80">
@@ -48,7 +48,7 @@ export function ProjectSolution({ project }: ProjectSolutionProps) {
         )}
         {project.outilsFramework && (
           <div>
-            <h4 className="text-sm font-bold text-wivoo-primary/90 mb-1">
+            <h4 className="text-sm font-medium text-wivoo-primary/70 mb-1">
               Outils et framework
             </h4>
             <p className="text-sm text-foreground/80">
@@ -57,6 +57,11 @@ export function ProjectSolution({ project }: ProjectSolutionProps) {
           </div>
         )}
       </CardContent>
+      
+      {/* Bottom accent animation */}
+      <div className="absolute bottom-0 left-0 right-0 h-0.5 overflow-hidden">
+        <div className="h-full bg-gradient-wivoo -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" />
+      </div>
     </Card>
   );
 }
