@@ -11,15 +11,15 @@ export function createDataSource(): DataSource {
 
   if (useNotion) {
     const notionToken = process.env.NOTION_TOKEN;
-    const databaseId = process.env.NOTION_DATABASE_ID;
+    const dataSourceId = process.env.NOTION_DATA_SOURCE_ID;
 
-    if (!notionToken || !databaseId) {
+    if (!notionToken || !dataSourceId) {
       throw new Error(
-        "NOTION_TOKEN and NOTION_DATABASE_ID must be set when USE_NOTION=true"
+        "NOTION_TOKEN and NOTION_DATA_SOURCE_ID must be set when USE_NOTION=true"
       );
     }
 
-    return new NotionDataSource(notionToken, databaseId);
+    return new NotionDataSource(notionToken, dataSourceId);
   }
 
   // Par défaut, utiliser le CSV

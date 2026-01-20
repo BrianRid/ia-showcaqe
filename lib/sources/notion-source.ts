@@ -11,14 +11,14 @@ import type { DataSource } from "./csv-source";
  */
 export class NotionDataSource implements DataSource {
   private notion: Client;
-  private databaseId: string;
+  private dataSourceId: string;
   private cache: Project[] | null = null;
   private cacheTimestamp: number | null = null;
   private readonly CACHE_DURATION = CACHE_DURATION_MS;
 
-  constructor(notionToken: string, databaseId: string) {
+  constructor(notionToken: string, dataSourceId: string) {
     this.notion = new Client({ auth: notionToken });
-    this.databaseId = databaseId;
+    this.dataSourceId = dataSourceId;
   }
 
   private isCacheValid(): boolean {
@@ -39,8 +39,8 @@ export class NotionDataSource implements DataSource {
 
       // Notion API pagine les résultats (max 100 par requête)
       while (hasMore) {
-        const response = await this.notion.databases.query({
-          database_id: this.databaseId,
+        const response = await this.notion.dataSources.query({
+          data_source_id: this.dataSourceId,
           start_cursor: startCursor,
           page_size: NOTION_PAGE_SIZE,
         }) as unknown as NotionDatabaseQueryResponse;
