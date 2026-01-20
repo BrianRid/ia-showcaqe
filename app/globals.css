@@ -6,14 +6,21 @@
 
 :root {
   --radius: 0.75rem;
-  /* Wivoo colors: #451dc7 (primary) & #d6cbf8 (light) */
+  
+  /* Wivoo colors: 4 couleurs principales */
+  --wivoo-primary: #451ec7;
+  --wivoo-green: #04f06a;
+  --wivoo-blue: #4682b4;
+  --wivoo-purple: #8f00ff;
+  
+  /* Theme colors */
   --background: oklch(0.99 0.005 280);
   --foreground: oklch(0.2 0.02 280);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.2 0.02 280);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.2 0.02 280);
-  --primary: oklch(0.42 0.22 285); /* #451dc7 */
+  --primary: oklch(0.42 0.22 285); /* #451ec7 */
   --primary-foreground: oklch(0.99 0 0);
   --secondary: oklch(0.88 0.08 285); /* #d6cbf8 */
   --secondary-foreground: oklch(0.3 0.15 285);
@@ -49,6 +56,14 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+  
+  /* Couleurs custom Wivoo */
+  --color-wivoo-primary: var(--wivoo-primary);
+  --color-wivoo-green: var(--wivoo-green);
+  --color-wivoo-blue: var(--wivoo-blue);
+  --color-wivoo-purple: var(--wivoo-purple);
+  
+  /* Theme colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -122,6 +137,9 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #451ec7 !important;
   }
 }
 

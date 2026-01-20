@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MAX_USAGE_PREVIEW_LENGTH } from "@/lib/constants";
+import { getBadgeStyle } from "@/lib/utils/badge-color";
 
 interface ProjectCardProps {
   project: ProjectSummary;
@@ -57,8 +58,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <div className="relative p-4 rounded-lg bg-linear-to-br from-wivoo-light/40 to-wivoo-primary/10 border-2 border-wivoo-primary/40 group-hover:border-wivoo-primary group-hover:shadow-wivoo-md transition-all duration-300 group-hover:from-wivoo-light/60 group-hover:to-wivoo-primary/20">
               <div className="absolute inset-0 bg-gradient-wivoo opacity-5 group-hover:opacity-10 rounded-lg transition-opacity duration-300" />
               <p className="text-sm text-foreground/90 line-clamp-3 leading-relaxed relative font-medium">
-                {project.casUsage.length > MAX_USAGE_PREVIEW_LENGTH 
-                  ? project.casUsage.substring(0, MAX_USAGE_PREVIEW_LENGTH) + '...' 
+                {project.casUsage.length > MAX_USAGE_PREVIEW_LENGTH
+                  ? project.casUsage.substring(0, MAX_USAGE_PREVIEW_LENGTH) + '...'
                   : project.casUsage}
               </p>
             </div>
@@ -67,12 +68,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         <CardFooter className="relative z-10 flex items-center justify-between gap-2 pt-6">
           {project.typeSolution && (
-            <Badge variant="outline" className="text-xs border-2 border-wivoo-primary/60 text-wivoo-primary bg-wivoo-light/50 group-hover:bg-wivoo-light group-hover:border-wivoo-primary group-hover:shadow-wivoo-sm transition-all duration-300 font-bold">
+            <Badge
+              variant="outline"
+              className="text-xs border-2 group-hover:shadow-wivoo-sm transition-all duration-300 font-bold"
+              style={getBadgeStyle(project.typeSolution)}
+            >
               {project.typeSolution}
             </Badge>
           )}
           {project.niveauMaturite && (
-            <span className="text-xs text-wivoo-dark font-bold group-hover:text-wivoo-primary transition-colors duration-300">
+            <span className="text-xs font-bold transition-colors duration-300" style={{ color: '#2d1385' }}>
               {project.niveauMaturite}
             </span>
           )}

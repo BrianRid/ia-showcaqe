@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Project } from "@/types/project";
+import { getBadgeStyle } from "@/lib/utils/badge-color";
 
 interface ProjectHeaderProps {
   project: Project;
@@ -39,17 +40,29 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
 
           <div className="flex flex-wrap gap-3 animate-slide-up-delayed">
             {project.client && (
-              <Badge variant="outline" className="border-2 border-wivoo-primary text-wivoo-dark bg-wivoo-light/60 hover:bg-wivoo-light transition-all duration-300 hover:shadow-wivoo-md hover:scale-105 text-sm px-4 py-2 font-bold">
+              <Badge 
+                variant="outline" 
+                className="border-2 transition-all duration-300 hover:shadow-wivoo-md hover:scale-105 text-sm px-4 py-2 font-bold"
+                style={{ borderColor: '#451ec7', color: '#451ec7', backgroundColor: '#451ec71a' }}
+              >
                 <span className="font-black">Client:</span> {project.client}
               </Badge>
             )}
             {project.secteurActivite && (
-              <Badge variant="outline" className="border-2 border-wivoo-primary text-wivoo-dark bg-wivoo-light/60 hover:bg-wivoo-light transition-all duration-300 hover:shadow-wivoo-md hover:scale-105 text-sm px-4 py-2 font-bold">
+              <Badge 
+                variant="outline" 
+                className="border-2 transition-all duration-300 hover:shadow-wivoo-md hover:scale-105 text-sm px-4 py-2 font-bold"
+                style={{ borderColor: '#4682b4', color: '#4682b4', backgroundColor: '#4682b41a' }}
+              >
                 <span className="font-black">Secteur:</span> {project.secteurActivite}
               </Badge>
             )}
             {project.typeSolution && (
-              <Badge variant="outline" className="border-2 border-wivoo-primary text-wivoo-dark bg-wivoo-light/60 hover:bg-wivoo-light transition-all duration-300 hover:shadow-wivoo-md hover:scale-105 text-sm px-4 py-2 font-bold">
+              <Badge 
+                variant="outline" 
+                className="border-2 transition-all duration-300 hover:shadow-wivoo-md hover:scale-105 text-sm px-4 py-2 font-bold"
+                style={getBadgeStyle(project.typeSolution)}
+              >
                 <span className="font-black">Type:</span> {project.typeSolution}
               </Badge>
             )}

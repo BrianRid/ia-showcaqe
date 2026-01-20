@@ -9,24 +9,34 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "wivoo-primary": "#451dc7",
+        "wivoo-primary": "#451ec7",
         "wivoo-light": "#d6cbf8",
         "wivoo-dark": "#2d1385",
+        "wivoo-green": "#04f06a",
+        "wivoo-blue": "#4682b4",
+        "wivoo-purple": "#8f00ff",
       },
       boxShadow: {
-        "wivoo-sm": "0 2px 8px -2px rgba(69, 29, 199, 0.12)",
-        "wivoo-md": "0 4px 16px -4px rgba(69, 29, 199, 0.16)",
-        "wivoo-lg": "0 12px 32px -8px rgba(69, 29, 199, 0.2)",
-        "wivoo-xl": "0 24px 48px -12px rgba(69, 29, 199, 0.24)",
-        "wivoo-glow": "0 0 32px rgba(69, 29, 199, 0.4), 0 0 64px rgba(69, 29, 199, 0.2)",
-        "wivoo-glow-lg": "0 0 48px rgba(69, 29, 199, 0.5), 0 0 96px rgba(69, 29, 199, 0.3)",
+        "wivoo-sm": "0 2px 8px -2px rgba(69, 30, 199, 0.12)",
+        "wivoo-md": "0 4px 16px -4px rgba(69, 30, 199, 0.16)",
+        "wivoo-lg": "0 12px 32px -8px rgba(69, 30, 199, 0.2)",
+        "wivoo-xl": "0 24px 48px -12px rgba(69, 30, 199, 0.24)",
+        "wivoo-glow": "0 0 32px rgba(69, 30, 199, 0.4), 0 0 64px rgba(69, 30, 199, 0.2)",
+        "wivoo-glow-lg": "0 0 48px rgba(69, 30, 199, 0.5), 0 0 96px rgba(69, 30, 199, 0.3)",
+        "wivoo-green-glow": "0 0 32px rgba(4, 240, 106, 0.4), 0 0 64px rgba(4, 240, 106, 0.2)",
+        "wivoo-blue-glow": "0 0 32px rgba(70, 130, 180, 0.4), 0 0 64px rgba(70, 130, 180, 0.2)",
+        "wivoo-purple-glow": "0 0 32px rgba(143, 0, 255, 0.4), 0 0 64px rgba(143, 0, 255, 0.2)",
       },
       backgroundImage: {
-        "gradient-wivoo": "linear-gradient(135deg, #451dc7 0%, #6b46d8 100%)",
+        "gradient-wivoo": "linear-gradient(135deg, #451ec7 0%, #6b46d8 100%)",
         "gradient-wivoo-light": "linear-gradient(135deg, #d6cbf8 0%, #e8e1fc 100%)",
-        "gradient-wivoo-radial": "radial-gradient(circle at top right, #451dc7, #2d1385)",
+        "gradient-wivoo-radial": "radial-gradient(circle at top right, #451ec7, #2d1385)",
+        "gradient-wivoo-green": "linear-gradient(135deg, #04f06a 0%, #06ff7b 100%)",
+        "gradient-wivoo-blue": "linear-gradient(135deg, #4682b4 0%, #5a9fd4 100%)",
+        "gradient-wivoo-purple": "linear-gradient(135deg, #8f00ff 0%, #a64dff 100%)",
         "gradient-radial": "radial-gradient(circle, var(--tw-gradient-stops))",
-        "gradient-wivoo-animated": "linear-gradient(270deg, #451dc7, #6b46d8, #8b5cf6, #6b46d8, #451dc7)",
+        "gradient-wivoo-animated": "linear-gradient(270deg, #451ec7, #6b46d8, #8b5cf6, #6b46d8, #451ec7)",
+        "gradient-wivoo-4colors": "linear-gradient(135deg, #451ec7 0%, #04f06a 33%, #4682b4 66%, #8f00ff 100%)",
         "shimmer-gradient": "linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent)",
       },
       animation: {
@@ -55,11 +65,11 @@ const config: Config = {
         },
         "pulse-glow": {
           "0%, 100%": {
-            boxShadow: "0 0 20px rgba(69, 29, 199, 0.4), 0 0 40px rgba(69, 29, 199, 0.2)",
+            boxShadow: "0 0 20px rgba(69, 30, 199, 0.4), 0 0 40px rgba(69, 30, 199, 0.2)",
             transform: "scale(1)",
           },
           "50%": {
-            boxShadow: "0 0 40px rgba(69, 29, 199, 0.6), 0 0 80px rgba(69, 29, 199, 0.3)",
+            boxShadow: "0 0 40px rgba(69, 30, 199, 0.6), 0 0 80px rgba(69, 30, 199, 0.3)",
             transform: "scale(1.02)",
           },
         },
@@ -84,8 +94,8 @@ const config: Config = {
           "100%": { transform: "rotate(360deg)" },
         },
         "border-glow": {
-          "0%, 100%": { borderColor: "rgba(69, 29, 199, 0.2)" },
-          "50%": { borderColor: "rgba(69, 29, 199, 0.6)" },
+          "0%, 100%": { borderColor: "rgba(69, 30, 199, 0.2)" },
+          "50%": { borderColor: "rgba(69, 30, 199, 0.6)" },
         },
         "bounce-subtle": {
           "0%, 100%": { transform: "translateY(0)" },
