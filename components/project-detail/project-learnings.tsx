@@ -14,7 +14,7 @@ export function ProjectLearnings({ project }: ProjectLearningsProps) {
       <CardHeader className="relative">
         <CardTitle className="text-3xl font-black flex items-center gap-3 text-wivoo-primary">
           <div className="w-2 h-8 bg-gradient-wivoo-animated gradient-animated rounded-full shadow-wivoo-glow" />
-          Apprentissages
+          Retour d'expérience
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4 relative">

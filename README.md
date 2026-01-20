@@ -1,6 +1,6 @@
 # IA Showcase - Wivoo
 
-Showcase propre et élégant des projets IA utilisant **shadcn/ui**.
+Vitrine des missions et retours d'expérience Data & IA réalisés par Wivoo, utilisant **shadcn/ui**.
 
 ## Stack
 
@@ -34,14 +34,14 @@ npm start
 
 ```
 /app
-  /page.tsx              # Page d'accueil avec liste des projets
-  /project/[id]/page.tsx # Page de détail d'un projet
+  /page.tsx              # Page d'accueil avec liste des missions
+  /project/[id]/page.tsx # Page de détail d'une mission
   /layout.tsx            # Layout principal
   /globals.css           # Styles globaux
 
 /components
-  /project-card.tsx      # Card de projet (shadcn)
-  /project-list.tsx      # Liste des projets
+  /project-card.tsx      # Card de mission (shadcn)
+  /project-list.tsx      # Liste des missions
   /ui/                   # Composants shadcn/ui
     /card.tsx
     /badge.tsx

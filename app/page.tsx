@@ -24,7 +24,7 @@ export default async function HomePage() {
                 IA Showcase
               </h1>
               <p className="text-sm text-slate-600">
-                Réalisations & projets IA by <span className="font-bold text-wivoo-primary">Wivoo</span>
+                Retours d'expérience & réalisations IA by <span className="font-bold text-wivoo-primary">Wivoo</span>
               </p>
             </div>
             <div className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-wivoo-primary/10 border-2 border-wivoo-primary/40 shadow-wivoo-glow">
@@ -34,7 +34,7 @@ export default async function HomePage() {
                 </span>
                 <div className="absolute -inset-2 bg-wivoo-primary/20 blur-xl -z-10" />
               </div>
-              <span className="text-sm font-bold text-wivoo-dark">projets</span>
+              <span className="text-sm font-bold text-wivoo-dark">missions</span>
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@ export default async function HomePage() {
         <div className="mb-20 text-center space-y-8 animate-slide-up">
           <div className="relative inline-block">
             <h2 className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-4">
-              Nos Projets{" "}
+              Nos Missions{" "}
               <span className="relative inline-block">
                 <span className="bg-gradient-wivoo-animated gradient-animated bg-clip-text text-transparent">
                   IA
@@ -62,12 +62,12 @@ export default async function HomePage() {
           </div>
 
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light animate-slide-up-delayed">
-            Découvrez notre portfolio de solutions d'<span className="text-wivoo-primary font-semibold">Intelligence Artificielle</span> conçues pour{" "}
+            Découvrez nos missions et retours d'expérience <span className="text-wivoo-primary font-semibold">Data & IA</span> au service de la{" "}
             <span className="relative inline-block">
-              <span className="text-wivoo-primary font-semibold">transformer</span>
+              <span className="text-wivoo-primary font-semibold">transformation</span>
               <span className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-wivoo block" />
             </span>{" "}
-            votre business
+            de nos clients
           </p>
 
           {/* Floating decorative elements */}
@@ -110,9 +110,10 @@ export default async function HomePage() {
               </div>
             </div>
             <p className="text-lg text-foreground/70 max-w-md mx-auto">
-              Communauté d'experts en <span className="text-wivoo-primary font-bold">Produit</span>,{" "}
+              Un collectif d'experts en <span className="text-wivoo-primary font-bold">Produit</span>,{" "}
               <span className="text-wivoo-primary font-bold">Data</span> et{" "}
-              <span className="text-wivoo-primary font-bold">IA</span>
+              <span className="text-wivoo-primary font-bold">IA</span><br />
+              au service de la transformation de votre entreprise
             </p>
           </div>
         </div>

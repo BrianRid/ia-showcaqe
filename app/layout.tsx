@@ -8,7 +8,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "IA Showcase - Wivoo",
-  description: "Showcase des réalisations et projets IA",
+  description: "Retours d'expérience et réalisations Data & IA au service de la transformation de nos clients",
 };
 
 export default function RootLayout({

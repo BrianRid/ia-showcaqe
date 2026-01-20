@@ -14,14 +14,14 @@ export function ProjectProblematic({ project }: ProjectProblematicProps) {
       <CardHeader className="relative">
         <CardTitle className="text-3xl font-black flex items-center gap-3 text-wivoo-primary">
           <div className="w-2 h-8 bg-gradient-wivoo-animated gradient-animated rounded-full shadow-wivoo-glow" />
-          Problématique & Objectifs
+          Enjeux & Objectifs
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4 relative">
         {project.problemePrincipal && (
           <div>
             <h4 className="text-sm font-bold text-wivoo-primary/90 mb-1">
-              Problématique principale
+              Enjeu principal
             </h4>
             <p className="text-sm text-foreground/80">
               {project.problemePrincipal}

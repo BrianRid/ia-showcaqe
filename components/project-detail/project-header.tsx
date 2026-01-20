@@ -21,7 +21,7 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
         >
           <Link href="/">
             <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform duration-300" />
-            Retour aux projets
+            Retour aux missions
           </Link>
         </Button>
 
