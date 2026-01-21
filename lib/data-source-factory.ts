@@ -1,28 +1,18 @@
-import path from "path";
-import type { DataSource } from "./sources/csv-source";
-import { CSVDataSource } from "./sources/csv-source";
+import type { DataSource } from "./data-source.interface";
 import { NotionDataSource } from "./sources/notion-source";
 
 /**
- * Factory pour créer la bonne source de données selon la config
+ * Factory pour créer la source de données Notion
  */
 export function createDataSource(): DataSource {
-  const useNotion = process.env.USE_NOTION === "true";
+  const notionToken = process.env.NOTION_TOKEN;
+  const databaseId = process.env.NOTION_DATABASE_ID;
 
-  if (useNotion) {
-    const notionToken = process.env.NOTION_TOKEN;
-    const dataSourceId = process.env.NOTION_DATA_SOURCE_ID;
-
-    if (!notionToken || !dataSourceId) {
-      throw new Error(
-        "NOTION_TOKEN and NOTION_DATA_SOURCE_ID must be set when USE_NOTION=true"
-      );
-    }
-
-    return new NotionDataSource(notionToken, dataSourceId);
+  if (!notionToken || !databaseId) {
+    throw new Error(
+      "NOTION_TOKEN and NOTION_DATABASE_ID must be set"
+    );
   }
 
-  // Par défaut, utiliser le CSV
-  const csvPath = path.join(process.cwd(), "database.csv");
-  return new CSVDataSource(csvPath);
+  return new NotionDataSource(notionToken, databaseId);
 }

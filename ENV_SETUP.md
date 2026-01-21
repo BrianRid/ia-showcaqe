@@ -5,10 +5,7 @@
 1. **Créer le fichier `.env.local`** à la racine du projet :
 
 ```env
-# Activer Notion (mettre à true)
-USE_NOTION=true
-
-# Token d'intégration Notion
+# Token d'intégration Notion (commence par secret_ ou ntn_)
 NOTION_TOKEN=secret_xxxxxxxxxxxxxxxxxxxxx
 
 # ID de la database
@@ -28,8 +25,11 @@ npm run dev
 - Allez sur https://www.notion.so/my-integrations
 - Cliquez sur "+ New integration"
 - Nom : "IA Showcase" (ou autre)
-- Capabilities : "Read content"
+- Type : **Internal Integration**
+- Associated workspace : Choisissez le workspace où se trouve votre database
+- Capabilities : "Read content" (minimum)
 - Copiez le **Internal Integration Secret** → c'est votre `NOTION_TOKEN`
+  - Commence par `secret_` ou `ntn_`
 
 ### 2. Partager votre database avec l'intégration
 
@@ -67,7 +67,7 @@ npm run dev
 Votre database Notion doit avoir les propriétés suivantes (noms exacts) :
 
 - **Titre** (Title)
-- **Statut** (Select)
+- **published** (Select) - avec option "Production" pour publier un projet
 - **Cadre du projet** (Text)
 - **Client** (Text)
 - **Secteur d'activité** (Text)
@@ -89,3 +89,5 @@ Votre database Notion doit avoir les propriétés suivantes (noms exacts) :
 - **Hypothèse de valeur validée ?** (Select)
 - **Enseignements clés** (Text)
 - **Réplicabilité** (Text)
+
+**Note** : Seuls les projets avec `Published = "Production"` seront affichés dans l'application.

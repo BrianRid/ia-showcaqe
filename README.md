@@ -49,7 +49,11 @@ npm start
     /separator.tsx
 
 /lib
-  /data-source.ts        # Source de données (CSV)
+  /data-source.ts        # Source de données (Notion)
+  /sources/
+    /notion-source.ts    # Implémentation Notion
+  /parsers/
+    /notion-parser.ts    # Parser Notion vers Project
   /utils.ts              # Utilitaires
 
 /types
@@ -83,21 +87,15 @@ npx shadcn@latest add [component-name]
 
 ## Data
 
-### Sources de données
+### Source de données : Notion
 
-Le projet supporte deux sources de données :
+Le projet utilise **Notion** comme source de données unique.
 
-1. **CSV** (par défaut) : fichier local `🧠 IA Showcase – Réalisations IA 2ed331cabede80878a93dc2b059d6a01.csv`
-2. **Notion API** : récupération dynamique depuis une database Notion
-
-### Configuration Notion
-
-Pour utiliser Notion comme source de données :
+### Configuration
 
 1. Créer un fichier `.env.local` :
 
 ```env
-USE_NOTION=true
 NOTION_TOKEN=secret_xxxxxxxxxxxxxxxxxxxxx
 NOTION_DATABASE_ID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
@@ -105,3 +103,5 @@ NOTION_DATABASE_ID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 2. Redémarrer le serveur
 
 Voir [ENV_SETUP.md](./ENV_SETUP.md) pour le guide complet de configuration Notion.
+
+**Note** : Seuls les projets avec le champ `published = "Production"` dans Notion seront affichés.

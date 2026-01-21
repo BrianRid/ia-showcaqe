@@ -34,14 +34,31 @@ export function getNotionPropertyValue(property: NotionProperty | undefined): st
 }
 
 /**
+ * Helper pour extraire le boolean published depuis un select Notion
+ */
+function getPublishedValue(property: NotionProperty | undefined): boolean {
+  if (!property) {
+    return false;
+  }
+  if (property.type !== "select") {
+    return false;
+  }
+  const value = property.select?.name;
+  return value === "true";
+  // Accept
+}
+
+/**
  * Parse une page Notion en objet Project
  */
 export function parseNotionPageToProject(page: NotionPage): Project {
   const props = page.properties;
 
+
   return {
     id: page.id,
     titre: getNotionPropertyValue(props["Titre"]),
+    published: getPublishedValue(props["published"]),
     cadreProjet: getNotionPropertyValue(props["Cadre du projet"]),
     client: getNotionPropertyValue(props["Client"]),
     secteurActivite: getNotionPropertyValue(props["Secteur d'activité"]),

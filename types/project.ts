@@ -1,6 +1,7 @@
 export interface Project {
   id: string;
   titre: string;
+  published: boolean;
   cadreProjet: string;
   client: string;
   secteurActivite: string;

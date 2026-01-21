@@ -1,11 +1,10 @@
 /**
- * Interface pour abstraire la source de données
- * Permet de switcher facilement entre CSV et Notion API
+ * Source de données principale basée sur Notion
  */
 
 import { createDataSource } from "./data-source-factory";
 
-export type { DataSource } from "./sources/csv-source";
+export type { DataSource } from "./data-source.interface";
 export { projectToSummary } from "./utils/project-mapper";
 
 // Export de l'instance singleton

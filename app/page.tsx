@@ -3,6 +3,7 @@ import { ProjectCard } from "@/components/project-card";
 import { FloatingParticles } from "@/components/floating-particles";
 import { CursorGlow } from "@/components/cursor-glow";
 import { AnimatedBackground } from "@/components/animated-background";
+import Image from "next/image";
 
 export default async function HomePage() {
   const projects = await dataSource.getProjectsSummary();
@@ -18,13 +19,22 @@ export default async function HomePage() {
         <div className="absolute inset-0 bg-linear-to-r from-wivoo-primary/5 to-transparent" />
         <div className="container mx-auto px-4 py-6 relative">
           <div className="flex items-center justify-between">
-            <div className="space-y-1 animate-fade-in">
-              <h1 className="text-3xl font-semibold text-wivoo-primary drop-shadow-sm">
-                IA Showcase
-              </h1>
-              <p className="text-sm text-slate-600">
-                Retours d'expérience & réalisations IA by <span className="font-semibold text-wivoo-primary">Wivoo</span>
-              </p>
+            <div className="flex items-center gap-4 animate-fade-in">
+              <Image
+                src="/wi-logo.svg"
+                alt="Wivoo Logo"
+                width={50}
+                height={50}
+                className="drop-shadow-sm"
+              />
+              <div className="space-y-1">
+                <h1 className="text-3xl font-semibold text-wivoo-primary drop-shadow-sm">
+                  IA Showcase
+                </h1>
+                <p className="text-sm text-slate-600">
+                  Retours d&apos;expérience & réalisations IA by <span className="font-semibold text-wivoo-primary">Wivoo</span>
+                </p>
+              </div>
             </div>
             <div className="flex items-center gap-2.5 px-4 py-2 rounded-lg bg-wivoo-primary/10 border border-wivoo-primary/30 shadow-wivoo-md hover:shadow-wivoo-glow transition-all duration-300 hover:scale-105">
               <div className="relative">
@@ -33,7 +43,7 @@ export default async function HomePage() {
                 </span>
                 <div className="absolute -inset-1 bg-wivoo-primary/20 blur-lg -z-10 opacity-50" />
               </div>
-              <span className="text-sm font-medium text-wivoo-dark">missions</span>
+              <span className="text-sm font-medium text-wivoo-dark">{projects.length > 1 ? 'missions' : 'mission'}</span>
             </div>
           </div>
         </div>
@@ -59,7 +69,7 @@ export default async function HomePage() {
           </div>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-slide-up-delayed">
-            Découvrez nos missions et retours d'expérience <span className="text-wivoo-primary font-medium">Data & IA</span> au service de la{" "}
+            Découvrez nos missions et retours d&apos;expérience <span className="text-wivoo-primary font-medium">Data & IA</span> au service de la{" "}
             <span className="relative inline-block">
               <span className="text-wivoo-primary font-medium">transformation</span>
               <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-wivoo" />
@@ -116,7 +126,7 @@ export default async function HomePage() {
               </a>
             </div>
             <p className="text-base text-foreground/70 max-w-md mx-auto">
-              Un collectif d'experts en <span className="text-wivoo-primary font-medium">Produit</span>,{" "}
+              Un collectif d&apos;experts en <span className="text-wivoo-primary font-medium">Produit</span>,{" "}
               <span className="text-wivoo-primary font-medium">Data</span> et{" "}
               <span className="text-wivoo-primary font-medium">IA</span><br />
               au service de la transformation de votre entreprise
